@@ -75,28 +75,28 @@ mvn clean install
 
 mvn spring-boot:run
 
-API Endpoints
-REST API
-POST /api/reservations: Create a new reservation.
-GET /api/reservations/{id}: Retrieve a reservation by ID.
-PUT /api/reservations/{id}: Update a reservation by ID.
-DELETE /api/reservations/{id}: Delete a reservation by ID.
-gRPC Services
-CreateReservation(CreateReservationRequest): Create a new reservation.
-GetReservation(GetReservationRequest): Retrieve a reservation by ID.
-UpdateReservation(UpdateReservationRequest): Update a reservation by ID.
-DeleteReservation(DeleteReservationRequest): Delete a reservation by ID.
-GraphQL Services
-mutation createReservation(clientName: String, startDate: Date, endDate: Date, roomPreferences: String): Create a new reservation.
-query getReservation(id: Long): Retrieve a reservation by ID.
-mutation updateReservation(id: Long, clientName: String, startDate: Date, endDate: Date, roomPreferences: String): Update a reservation by ID.
-mutation deleteReservation(id: Long): Delete a reservation by ID.
+## API Endpoints
+## REST API
+**POST** /api/reservations: Create a new reservation.
+**GET** /api/reservations/{id}: Retrieve a reservation by ID.
+**PUT** /api/reservations/{id}: Update a reservation by ID.
+**DELETE** /api/reservations/{id}: Delete a reservation by ID.
+### gRPC Services
+**CreateReservation(CreateReservationRequest):** Create a new reservation.
+**GetReservation(GetReservationRequest):** Retrieve a reservation by ID.
+**UpdateReservation(UpdateReservationRequest):** Update a reservation by ID.
+**DeleteReservation(DeleteReservationRequest):** Delete a reservation by ID.
+### GraphQL Services
+**mutation createReservation(clientName:** String, startDate: Date, **endDate: Date, roomPreferences: String):** Create a new reservation.
+**query getReservation(id: Long):** Retrieve a reservation by ID.
+**mutation updateReservation(id: Long, clientName: String, startDate:** Date, endDate: Date, roomPreferences: String): Update a reservation by ID.
+**mutation deleteReservation(id: Long):** Delete a reservation by ID.
 SOAP Services
-CreateReservation(CreateReservationRequest): Create a new reservation.
-GetReservation(GetReservationRequest): Retrieve a reservation by ID.
-UpdateReservation(UpdateReservationRequest): Update a reservation by ID.
-DeleteReservation(DeleteReservationRequest): Delete a reservation by ID.
-Contributing
+**CreateReservation(CreateReservationRequest):** Create a new reservation.
+**GetReservation(GetReservationRequest):** Retrieve a reservation by ID.
+**UpdateReservation(UpdateReservationRequest):** Update a reservation by ID.
+**DeleteReservation(DeleteReservationRequest):** Delete a reservation by ID.
+### Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
 
