@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package reservation;
+
+option java_package = "com.example.hotel_reservation.grpc";
+option java_outer_classname = "ReservationServiceGrpc";
+
+// Define the Reservation Service
+service ReservationService {
+    rpc CreateReservation (CreateReservationRequest) returns (CreateReservationResponse);
+    rpc GetReservation (GetReservationRequest) returns (GetReservationResponse);
+    rpc UpdateReservation (UpdateReservationRequest) returns (UpdateReservationResponse);
+    rpc DeleteReservation (DeleteReservationRequest) returns (DeleteReservationResponse);
+}
+
+// Define Messages
+message CreateReservationRequest {
+    string customerName = 1;
+    string checkInDate = 2;
+    string checkOutDate = 3;
+}
+
+message CreateReservationResponse {
+    string confirmationId = 1;
+}
+
+message GetReservationRequest {
+    string confirmationId = 1;
+}
+
+message GetReservationResponse {
+    string customerName = 1;
+    string checkInDate = 2;
+    string checkOutDate = 3;
+}
+
+message UpdateReservationRequest {
+    string confirmationId = 1;
+    string newCheckInDate = 2;
+    string newCheckOutDate = 3;
+}
+
+message UpdateReservationResponse {
+    string confirmationId = 1;
+}
+
+message DeleteReservationRequest {
+    string confirmationId = 1;
+}
+
+message DeleteReservationResponse {
+    string status = 1;
+}

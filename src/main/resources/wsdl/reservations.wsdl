@@ -1,0 +1,167 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://example.com/hotel_reservation"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="http://example.com/hotel_reservation">
+
+    <types>
+        <xsd:schema targetNamespace="http://example.com/hotel_reservation">
+            <xsd:element name="CreateReservationRequest" type="tns:CreateReservationRequest"/>
+            <xsd:element name="CreateReservationResponse" type="tns:CreateReservationResponse"/>
+            <xsd:element name="GetReservationRequest" type="tns:GetReservationRequest"/>
+            <xsd:element name="GetReservationResponse" type="tns:GetReservationResponse"/>
+            <xsd:element name="UpdateReservationRequest" type="tns:UpdateReservationRequest"/>
+            <xsd:element name="UpdateReservationResponse" type="tns:UpdateReservationResponse"/>
+            <xsd:element name="DeleteReservationRequest" type="tns:DeleteReservationRequest"/>
+            <xsd:element name="DeleteReservationResponse" type="tns:DeleteReservationResponse"/>
+
+            <xsd:complexType name="CreateReservationRequest">
+                <xsd:sequence>
+                    <xsd:element name="clientName" type="xsd:string"/>
+                    <xsd:element name="startDate" type="xsd:date"/>
+                    <xsd:element name="endDate" type="xsd:date"/>
+                    <xsd:element name="roomPreferences" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="CreateReservationResponse">
+                <xsd:sequence>
+                    <xsd:element name="reservationId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="GetReservationRequest">
+                <xsd:sequence>
+                    <xsd:element name="reservationId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="GetReservationResponse">
+                <xsd:sequence>
+                    <xsd:element name="clientName" type="xsd:string"/>
+                    <xsd:element name="startDate" type="xsd:date"/>
+                    <xsd:element name="endDate" type="xsd:date"/>
+                    <xsd:element name="roomPreferences" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="UpdateReservationRequest">
+                <xsd:sequence>
+                    <xsd:element name="reservationId" type="xsd:long"/>
+                    <xsd:element name="clientName" type="xsd:string"/>
+                    <xsd:element name="startDate" type="xsd:date"/>
+                    <xsd:element name="endDate" type="xsd:date"/>
+                    <xsd:element name="roomPreferences" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="UpdateReservationResponse">
+                <xsd:sequence>
+                    <xsd:element name="reservationId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="DeleteReservationRequest">
+                <xsd:sequence>
+                    <xsd:element name="reservationId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="DeleteReservationResponse">
+                <xsd:sequence>
+                    <xsd:element name="status" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+
+    <message name="CreateReservationRequest">
+        <part name="parameters" element="tns:CreateReservationRequest"/>
+    </message>
+    <message name="CreateReservationResponse">
+        <part name="parameters" element="tns:CreateReservationResponse"/>
+    </message>
+    <message name="GetReservationRequest">
+        <part name="parameters" element="tns:GetReservationRequest"/>
+    </message>
+    <message name="GetReservationResponse">
+        <part name="parameters" element="tns:GetReservationResponse"/>
+    </message>
+    <message name="UpdateReservationRequest">
+        <part name="parameters" element="tns:UpdateReservationRequest"/>
+    </message>
+    <message name="UpdateReservationResponse">
+        <part name="parameters" element="tns:UpdateReservationResponse"/>
+    </message>
+    <message name="DeleteReservationRequest">
+        <part name="parameters" element="tns:DeleteReservationRequest"/>
+    </message>
+    <message name="DeleteReservationResponse">
+        <part name="parameters" element="tns:DeleteReservationResponse"/>
+    </message>
+
+    <portType name="ReservationPortType">
+        <operation name="CreateReservation">
+            <input message="tns:CreateReservationRequest"/>
+            <output message="tns:CreateReservationResponse"/>
+        </operation>
+        <operation name="GetReservation">
+            <input message="tns:GetReservationRequest"/>
+            <output message="tns:GetReservationResponse"/>
+        </operation>
+        <operation name="UpdateReservation">
+            <input message="tns:UpdateReservationRequest"/>
+            <output message="tns:UpdateReservationResponse"/>
+        </operation>
+        <operation name="DeleteReservation">
+            <input message="tns:DeleteReservationRequest"/>
+            <output message="tns:DeleteReservationResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="ReservationSoapBinding" type="tns:ReservationPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="CreateReservation">
+            <soap:operation soapAction="http://example.com/hotel_reservation/CreateReservation"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="GetReservation">
+            <soap:operation soapAction="http://example.com/hotel_reservation/GetReservation"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="UpdateReservation">
+            <soap:operation soapAction="http://example.com/hotel_reservation/UpdateReservation"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="DeleteReservation">
+            <soap:operation soapAction="http://example.com/hotel_reservation/DeleteReservation"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="ReservationService">
+        <port name="ReservationSoapPort" binding="tns:ReservationSoapBinding">
+            <soap:address location="http://localhost:8080/ws"/>
+        </port>
+    </service>
+</definitions>
